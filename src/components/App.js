@@ -18,6 +18,7 @@ export default function App() {
   let [underline, setUnderline] = React.useState([]);
   let [palavrasEscolhidaArr, setPalavrasEscolhidaArr] = React.useState([]);
   let [corPalavra, setCorPalavra] = React.useState("palavra");
+  let [disabled, setDisabled] = React.useState(true);
 
   function jogo(event) {
     let newArr = [];
@@ -47,6 +48,8 @@ export default function App() {
         }
         if (x === palavrasEscolhidaArr.length - 1) {
           setCorPalavra("palavra verde");
+          setClassName("letra desabilitado");
+          setDisabled(true);
           // setTimeout(() => alert("Você Ganhou!!!"), 100);
         }
         // console.log("acertos: ", x);
@@ -66,7 +69,9 @@ export default function App() {
         setForca(lvl5);
       } else if (contador === 6) {
         setForca(lvl6);
+        setDisabled(true);
         setUnderline(palavrasEscolhidaArr);
+        setClassName("letra desabilitado");
         setCorPalavra("palavra vermelho");
         // setTimeout(() => alert("Você Perdeu D:"), 100);
       }
@@ -77,6 +82,7 @@ export default function App() {
   }
 
   function comecarJogo() {
+    setDisabled(false);
     setCorPalavra("palavra");
     setClassName("letra");
     setForca(lvl0);
@@ -107,7 +113,7 @@ export default function App() {
       </button>
       <Jogo img={forca} />
       <div className="letras">
-        <Letras disabled={""} className={className} onClick={jogo} />
+        <Letras disabled={disabled} className={className} onClick={jogo} />
       </div>
       <div data-test="word" className={corPalavra}>
         {underline}
