@@ -29,13 +29,13 @@ export default function App() {
       for (let i = 0; i < palavrasEscolhidaArr.length; i++) {
         if (palavrasEscolhidaArr[i] === valor) {
           newArr.push(valor);
-          console.log("1º caso: ", newArr);
+          // console.log("1º caso: ", newArr);
         } else if (underline[i] !== " _") {
           newArr.push(underline[i]);
-          console.log("2º caso: ", newArr);
+          // console.log("2º caso: ", newArr);
         } else {
           newArr.push(" _");
-          console.log("3º caso: ", newArr);
+          // console.log("3º caso: ", newArr);
         }
       }
 
@@ -49,7 +49,7 @@ export default function App() {
           setCorPalavra("palavra verde");
           // setTimeout(() => alert("Você Ganhou!!!"), 100);
         }
-        console.log("acertos: ", x);
+        // console.log("acertos: ", x);
       }
     } else {
       contador++;
@@ -72,8 +72,8 @@ export default function App() {
       }
     }
 
-    console.log(newArr);
-    console.log("erros: ", contador);
+    // console.log(newArr);
+    // console.log("erros: ", contador);
   }
 
   function comecarJogo() {
