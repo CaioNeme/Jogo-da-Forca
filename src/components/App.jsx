@@ -113,7 +113,7 @@ export default function App() {
   }
   return (
     <div className="app">
-      <button onClick={comecarJogo} className="botao">Escolher Palavra</button>
+      <button onClick={comecarJogo} data-test="choose-word" className="botao">Escolher Palavra</button>
       <Jogo
         img={forca}
       />
@@ -124,7 +124,7 @@ export default function App() {
           onClick={jogo}
         />
       </div>
-      <div className={corPalavra}>{underline}</div>
+      <div data-test="word" className={corPalavra}>{underline}</div>
     </div>
   )
 
