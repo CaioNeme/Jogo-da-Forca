@@ -23,6 +23,7 @@ export default function App() {
   function jogo(event) {
     let newArr = [];
     let valor = event.target.value;
+    console.log(event);
 
     console.log("Letra clicada: ", valor);
 
@@ -30,6 +31,8 @@ export default function App() {
       for (let i = 0; i < palavrasEscolhidaArr.length; i++) {
         if (palavrasEscolhidaArr[i] === valor) {
           newArr.push(valor);
+          event.target.disabled = true;
+          event.target.className = "letra desabilitado";
           // console.log("1º caso: ", newArr);
         } else if (underline[i] !== " _") {
           newArr.push(underline[i]);
@@ -56,7 +59,8 @@ export default function App() {
       }
     } else {
       contador++;
-
+      event.target.disabled = true;
+      event.target.className = "letra desabilitado";
       if (contador === 1) {
         setForca(lvl1);
       } else if (contador === 2) {
@@ -106,6 +110,7 @@ export default function App() {
     setUnderline(arr_);
     console.log(_arr);
   }
+
   return (
     <div className="app">
       <button onClick={comecarJogo} data-test="choose-word" className="botao">
